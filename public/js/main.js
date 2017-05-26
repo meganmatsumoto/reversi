@@ -91,6 +91,8 @@ socket.on('join_room_response',function(payload) {
     newNode.hide();
     $('#messages').append(newNode);
     newNode.slideDown(1000);
+
+	/* $('#messages').append('<p>New user joined the room: '+payload.username+'</p>'); */
 });
 
 
@@ -122,7 +124,7 @@ socket.on('player_disconnected',function(payload) {
     $('#messages').append(newNode);
     newNode.slideDown(1000);
 
-	$('#messages').append('<p>New user joined the room: '+payload.username+'</p>');
+	/* $('#messages').append('<p>New user joined the room: '+payload.username+'</p>'); */
 });
 
 
