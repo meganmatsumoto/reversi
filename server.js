@@ -566,7 +566,7 @@ socket.on('play_token',function(payload) {
 	if(('undefined' === typeof player) || !player) {
 		var error_message = 'server doesn\'t recognize you (try going back one screen';
 		log(error_message);
-		socket.emit('player_token_response', {
+		socket.emit('play_token_response', {
 			result:'fail',
 			message: error_message
 			});
@@ -577,7 +577,7 @@ socket.on('play_token',function(payload) {
 	if(('undefined' === typeof username) || !username) {
 		var error_message = 'play_token can\'t identify who sent the message';
 		log(error_message);
-		socket.emit('player_token_response', {
+		socket.emit('play_token_response', {
 			result:'fail',
 			message: error_message
 			});
@@ -588,7 +588,7 @@ socket.on('play_token',function(payload) {
 	if(('undefined' === typeof game_id) || !game_id) {
 		var error_message = 'play_token can\'t find your game board';
 		log(error_message);
-		socket.emit('player_token_response', {
+		socket.emit('play_token_response', {
 			result:'fail',
 			message: error_message
 			});
@@ -599,7 +599,7 @@ socket.on('play_token',function(payload) {
 	if(('undefined' === typeof row) || row <0 || row >7) {
 		var error_message = 'play_token didn\'t specify a valid row, command aborted';
 		log(error_message);
-		socket.emit('player_token_response', {
+		socket.emit('play_token_response', {
 			result:'fail',
 			message: error_message
 			});
@@ -610,7 +610,7 @@ socket.on('play_token',function(payload) {
 	if(('undefined' === typeof column) || column <0 || column > 7) {
 		var error_message = 'play_token didn\'t specify a valid column, command aborted';
 		log(error_message);
-		socket.emit('player_token_response', {
+		socket.emit('play_token_response', {
 			result:'fail',
 			message: error_message
 			});
@@ -621,7 +621,7 @@ socket.on('play_token',function(payload) {
 	if(('undefined' === typeof color) || !color || (color !='white' && color != 'black')) {
 		var error_message = 'play_token didn\'t specify a valid color, command aborted';
 		log(error_message);
-		socket.emit('player_token_response', {
+		socket.emit('play_token_response', {
 			result:'fail',
 			message: error_message
 			});
@@ -632,7 +632,7 @@ socket.on('play_token',function(payload) {
 	if(('undefined' === typeof game) || !game) {
 		var error_message = 'play_token couldn\'t find your game board';
 		log(error_message);
-		socket.emit('player_token_response', {
+		socket.emit('play_token_response', {
 			result:'fail',
 			message: error_message
 			});
@@ -640,10 +640,10 @@ socket.on('play_token',function(payload) {
 	}
 
     /* If the current attempt at playing a token is out of turn then error */
-    if(color !== game.whose_turn) {
+    if(color != game.whose_turn) {
     	var error_message = 'play_token message played out of turn';
 		log(error_message);
-		socket.emit('player_token_response', {
+		socket.emit('play_token_response', {
 			result:'fail',
 			message: error_message
 			});
@@ -651,10 +651,8 @@ socket.on('play_token',function(payload) {
     }
 
     /* If the wrong socket is playing the color */
-    if(
-    	((game.whose_turn === 'white') && (game.player_white.socket != socket.id)) ||
-    	((game.whose_turn === 'black') && (game.player_black.socket != socket.id))
-    	) {
+    if( ((game.whose_turn === 'white') && (game.player_white.socket !== socket.id)) ||
+    	((game.whose_turn === 'black') && (game.player_black.socket !== socket.id))) {
             var error_message = 'play_token turn played by wrong player';
 		    log(error_message);    
 		    socket.emit('play_token_response', {
