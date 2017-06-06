@@ -731,6 +731,9 @@ function create_new_game() {
  	if(board[r][c] === who) {
  		return true;
  	}
+ 	if(board[r][c] === ' ') {
+ 		return false;
+ 	}
  	if( (r+dr < 0) || (r+dr > 7) ) {
     	return false;
     }
