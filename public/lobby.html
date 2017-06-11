@@ -13,30 +13,46 @@
       }
 
       body {
-        max-width: 650px;
-        margin: auto;
+        margin: 0 auto;
       }
-
+    
+    #top-splash {
+      max-height: 40px;
+      margin: 10px;
+    }
     </style>
 
     <!-- Bootstrap CSS -->
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css' integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ' crossorigin='anonymous'>
+    <!-- Material Lite CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-deep_purple.min.css" />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <!-- Toaster -->
+    <link href="toastr.css" rel="stylesheet"/>
+    <script src="toastr.js"></script>
+    
   </head>
 
 
   <body>
     <div class='container-fluid text-center'>
+    <div class='row'>
+        <img id='top-splash' src='assets/images/top-splash.png'/>
+    </div>
       <div class='row' id='header-row'>
         <div class='col'>
-          <h2>Lobby</h2>
+          <h2 class='display-4'>Lobby</h2>
+          <p>Start a game of Reversi with players from around the world.</p> 
         </div>
       </div>
       
-      <div class='row align-items-end' id='players'>
-        <div class='col-9 text-left'>
-          <h3>Players</h3>
+      <div class='row align-items-center' id='players'>
+        <div class='col text-center'>
+          <h4>Players</h4>
         </div>
-        <div class='col-3'>
+        <div class='row'>
         </div>
         <!-- This is where the new people in the lobby are going to go -->
 
@@ -44,12 +60,14 @@
 
 
       <div class='row'>
-        <div class='col text-left'>
-          <h3>Messages</h3>
-          <form class='form-inline' onsubmit='send_message(); return false;'>
-              <label for='send_message_holder' class='col-form-label sr-only'>Enter your chat message</label>
-              <input class='form-control mx-auto w-75' type='text' value='' id='send_message_holder' placeholder='Enter your chat message' autocomplete='off' />
-              <button type='submit' class='btn btn-default btn-primary'>Send</button>
+        <div class='col text-center'>
+          <h4>Chat with Other Players</h4>
+          <form onsubmit='send_message(); return false;'>
+              <div class="mdl-textfield mdl-js-textfield">
+                  <input class="mdl-textfield__input mx-auto w-75" type="text" value='' id="send_message_holder" placeholder='Enter your chat message' autocomplete='off'/>
+                  <label class="mdl-textfield__label" for="send_message_holder">Enter your chat message</label>
+              </div>
+              <button class='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' type='submit'>Send</button>
           </form>
         </div>
       </div>

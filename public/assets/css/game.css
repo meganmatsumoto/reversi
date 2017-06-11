@@ -1,6 +1,19 @@
 #body {
-	max-width: 650px;
-	margin: auto;
+    margin-bottom: 1.2em;
+
+}
+
+#top-splash {
+	max-height: 40px;
+	margin: 10px;
+}
+
+.header-row {
+    margin-bottom:1.2em;
+    }
+
+#quit {
+    margin-top: 1.2em;
 }
 
 table#game_board {
@@ -8,21 +21,34 @@ table#game_board {
 	margin:auto;
 	border-style: solid;
 	border-width: 10px;
-	border-color: rgb(100,100,100);
+	border-color: rgb(75,75,75);
+	box-shadow: 5px 5px 5px #888888;
 }
 
+
 table#game_board td {
-	padding: 5px;
-	border-style: solid;
+	padding:3px;
+	border-style:solid;
 	border-width: 1px;
-	border-color: rgb(50,50,50);
+	border-color: rgb(75,75,75);
+	background-color: #82ca9c;
+}
+
+
+td.hovered_over:hover {
+	background: url('../images/hover.gif'), url('../images/empty.gif');
+    background-size: 100% 100%;
+}
+
+#messages {
+	max-width: 400px;
+	margin: 0px;
 }
 
 #messages p {
 	margin: 0px;
 }
 
-td.hovered_over:hover {
-	background: url('../images/hover.gif'), url('../images/empty.gif');
-	background-size: 100% 100%;
+.mdl-button {
+    margin-bottom: 5px;
 }

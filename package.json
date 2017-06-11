@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/meganmatsumoto/reversi#readme",
   "dependencies": {
+    "material-design-lite": "^1.3.0",
     "node-static": "^0.7.9",
     "socket.io": "^2.0.1"
   }
