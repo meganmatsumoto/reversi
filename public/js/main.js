@@ -256,7 +256,7 @@ function makeInvitedButton(socket_id) {
 }
 
 function makePlayButton(socket_id) {
-	var newHTML = '<button type=\'button\' class=\'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\'>Play</button>';
+	var newHTML = '<button type=\'button\' class=\'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect\'>Play</button>';
     var newNode = $(newHTML);
     newNode.click(function() {
     	game_start(socket_id);
