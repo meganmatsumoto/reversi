@@ -392,10 +392,10 @@ socket.on('game_update',function(payload) {
             		$('#'+row+'_'+column).html('<img src="assets/images/black_to_empty.gif" alt="empty square"/>');
             	}
             	else if(old_board[row][column] == 'w' && board[row][column] == 'b') {
-            		$('#'+row+'_'+column).html('<img src="assets/images/white_to_black.gif" alt="black square"/>');
+            		$('#'+row+'_'+column).html('<img src="assets/images/white_to_black.gif?t=' + (new Date().getTime()) + '" alt="black square"/>');
             	}
             	else if(old_board[row][column] == 'b' && board[row][column] == 'w') {
-            		$('#'+row+'_'+column).html('<img src="assets/images/black_to_white.gif" alt="white square"/>');
+            		$('#'+row+'_'+column).html('<img src="assets/images/black_to_white.gif?t=' + (new Date().getTime()) + '" alt="white square"/>');
             	}
             	else {
             		$('#'+row+'_'+column).html('<img src="assets/images/error.gif" alt="error"/>');
